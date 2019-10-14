@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WEventServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WEventServer</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WEventServer-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WEventServer:war exploded" />
+    </root>
+  </artifact>
+</component>
