@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -95,6 +96,10 @@ public class EsConfig extends WebSecurityConfigurerAdapter implements WebApplica
         return jpaTransactionManager;
     }
 
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("resources/**").anyRequest();
+    }
     @Override
     public void onStartup(ServletContext container) {
         // Create the 'root' Spring application context
